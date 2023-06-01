@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let childName = ["Melvin","Subaru","Swen","Luna","Oliver"];
+        let farm = [];
+        class Animal {
+        constructor(name, age) {
+        this.name = name;
+        this.age = age;
+        this.children = [];}
+
+        reproduce() {
+        let numChildren = Math.floor(Math.random() * 4);
+        for (let i = 0; i < numChildren; i++) {
+        let x = Math.floor(Math.random() * 4 + 1);
+        let rand = childName[x];
+        let child = new this.constructor(rand + i, 0);
+        this.children.push(child);
+        farm.push(child);}}}
+
+        class Cat extends Animal {
+        constructor(name, age) {
+        super(name, age);
+        this.type = "Cat";}}
+
+        class Dog extends Animal {
+        constructor(name, age) {
+        super(name, age);
+        this.type = "Dog";}}
+
+        class Cow extends Animal {
+        constructor(name, age) {
+        super(name, age);
+        this.type = "Cow";}}
+
+        let archie = new Cat("Archie", 3);
+        farm.push(archie);
+        let alex = new Dog("Alex", 5);
+        farm.push(alex);
+        let amber = new Cow("Amber", 10);
+        farm.push(amber);
+
+        archie.reproduce();
+        alex.reproduce();
+        amber.reproduce();
+
+        for (let animal of farm) {
+        console.log(`${animal.type} "${animal.name}", age: ${animal.age}, children: ${animal.children.map(child => child.name).join(", ")}`);}
+    </script>
+</body>
+</html>

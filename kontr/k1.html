@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = prompt("Введите массив строк через запятую").split(",");
+        let prefix = "";
+        for (let i = 0; i < arr[0].length; i++) {
+        let letter = arr[0][i];
+        for (let j = 1; j < arr.length; j++) {
+        if (arr[j][i] !== letter) {
+        console.log(prefix);}}
+        prefix += letter;}
+        console.log("Наиболее длинный префикс для всех строк:", prefix);
+    </script>
+</body>
+</html>
