@@ -8,15 +8,28 @@
 </head>
 <body>
     <script>
-        let arr = prompt("Введите массив строк через запятую").split(",");
-        let prefix = "";
-        for (let i = 0; i < arr[0].length; i++) {
-        let letter = arr[0][i];
-        for (let j = 1; j < arr.length; j++) {
-        if (arr[j][i] !== letter) {
-        console.log(prefix);}}
-        prefix += letter;}
-        console.log("Наиболее длинный префикс для всех строк:", prefix);
+        let words = prompt("Введите количество слов:");
+        const arr = [];
+        for(let h = 1; h <= words; h++){
+            arr.push(prompt(`Введите ${h} слово`));
+        }
+        const findLongestPrefix = (arr) => {
+        let longestPrefix = "";
+        if (arr.length === 0) return longestPrefix;
+        const firstWord = arr[0]; 
+        for (let i = 0; i < firstWord.length; i++) { 
+            const prefix = firstWord.slice(0, i + 1); 
+            for (let j = 1; j < arr.length; j++) {
+            if (!arr[j].startsWith(prefix)) { 
+                return longestPrefix;
+            }
+            }
+            longestPrefix = prefix;
+        }
+        return longestPrefix;
+        }
+        console.log(arr)
+        console.log(findLongestPrefix(arr));
     </script>
 </body>
 </html>
