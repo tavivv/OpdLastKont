@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <button id = reproducee>Reproduce</button>
     <script>
         let childName = ["Melvin","Subaru","Swen","Luna","Oliver"];
         let farm = [];
@@ -17,9 +18,9 @@
         this.children = [];}
 
         reproduce() {
-        let numChildren = Math.floor(Math.random() * 4);
+        let numChildren = Math.floor(Math.random() * 10);
         for (let i = 0; i < numChildren; i++) {
-        let x = Math.floor(Math.random() * 4 + 1);
+        let x = Math.floor(Math.random() * 5);
         let rand = childName[x];
         let child = new this.constructor(rand + i, 0);
         this.children.push(child);
@@ -53,6 +54,15 @@
 
         for (let animal of farm) {
         console.log(`${animal.type} "${animal.name}", age: ${animal.age}, children: ${animal.children.map(child => child.name).join(", ")}`);}
+
+        reproducee.onclick = function(){
+            let RepName = prompt("Введите имя животного:")
+            for(let i = 0; i < farm.length; i++){
+                if(RepName == farm[i].name){
+                    farm[i].reproduce()
+                    for (let animal of farm) {
+                    console.log(`${animal.type} "${animal.name}", age: ${animal.age}, children: ${animal.children.map(child => child.name).join(", ")}`);}
+                }}}
     </script>
 </body>
 </html>
